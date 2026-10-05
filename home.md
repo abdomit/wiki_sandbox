@@ -12,8 +12,8 @@ Since v3.0.0, the documentation is now on Confluence.
 
 # List of all registers
 
-| **ADDRESS (in 32-bits words)** | **REGISTER** | **R/W** | **DESCRIPTION** |
-|--------------------------------|--------------|---------|-----------------|
+| **ADDRESS (in 32-bits words)** | **REGISTER** | **R/W mode** | **DESCRIPTION** |
+|--------------------------------|--------------|--------------|-----------------|
 | 0x0000 | VERSION | R | 0x00VVSSRR with: VV=version, SS=subversion, RR=revision |
 | 0x0001 | CC_CTRL | R/W | [CC control register](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) |
 | 0x0002 | CORR_CTRL | R/W | [Corrector control register](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) |
@@ -97,7 +97,7 @@ For voltage the conversion is the following:
 | 0x0090 - 0x0092 | 16 - 18 | Unused |
 | 0x0093 | 19 | [WAVEFORMS_ENA](#FOFBregisters-waveforms) |
 | 0x0094 – 0x009D | 20 - 29 | [Trigger Registers](#FOFBregisters-triggers) |
-| 0x009E | 30 | RF_FREQ_CNT (_added in v5.4.8_)_<br>_4-bit counter, increment each time RF_FREQ is updated__ |
+| 0x009E | 30 | RF_FREQ_CNT (_added in v5.4.8_)\_<br>_4-bit counter, increment each time RF_FREQ is updated_\_ |
 | 0x009F – 0x00AE | 31 - 46 | Unused |
 | 0x00AF | 47 | [BLANKING_DURATION](#FOFBregisters-blanking) |
 | 0x00B0 - 0x00B9 | 48 - 57 | Simple Sniffer (not documented) |
@@ -110,10 +110,10 @@ For voltage the conversion is the following:
 | 0x00C0 | 64 | Steerer absolute limit value for Y plane in mA (16 bit signed integer, max value is 205)<br>If set to 205, limit on steerer current disabled |
 | 0x00C1 | 65 | SINGEN_AMPL_X<br>16-bit signed (-1 → 1) |
 | 0x00C2 | 66 | SINGEN_FREQ_X<br>16-bit signed (65536 = FA_freq = 10.149 kHz) |
-| 0x00C3 | 67 | SINGEN_CORR_N_X<br>select X steerers to output sin wave (bit 0 ↔ steerer #0, etc.) |
+| 0x00C3 | 67 | SINGEN_CORR_N_X<br>select X steerers to output sin wave (bit 0 :left_right_arrow: steerer #0, etc.) |
 | 0x00C4 | 68 | SINGEN_AMPL_Y<br>16-bit signed (-1 → 1) |
 | 0x00C5 | 69 | SINGEN_FREQ_Y<br>16-bit signed (65536 = FA_freq = 10.149 kHz) |
-| 0x00C6 | 70 | SINGEN_CORR_N_Y<br>select Y steerers to output sin wave (bit 0 ↔ steerer #0, etc.) |
+| 0x00C6 | 70 | SINGEN_CORR_N_Y<br>select Y steerers to output sin wave (bit 0 :left_right_arrow: steerer #0, etc.) |
 | 0x00C7 – 0x01FF | 71 - 127 | Unused |
 | 0x0200 - 0x020D |  | WF_GAIN_H1: X corrector gains for waveform1 (16 bit signed, 0x7FFF -\> 200mA) |
 | 0x020E - 0x021B |  | WF_GAIN_V1: Y corrector gains for waveform1 (16 bit signed, 0x7FFF -\> 200mA) |
