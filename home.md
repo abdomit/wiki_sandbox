@@ -55,7 +55,7 @@ For temperature the conversion is the following:
 ```
 
 For voltage the conversion is the following:\
-![](https://confluence.esrf.fr/plugins/servlet/confluence/placeholder/macro?definition=e21hdGhpbmxpbmU6Ym9keT0tLXVyaWVuY29kZWQtLVx0ZXh0JTdCdm9sdCU3RCBbXHRleHQlN0JWJTdEXSA9IDMgXHRpbWVzIFxkZnJhYyU3QnglN0QlN0IyJTVlJTdCMTYlN0QlN0R9&locale=en_GB&version=2)
+$`\text{volt} [\text{V}] = 3 \times \dfrac{x}{2^{16}}`$ 
 
 | address | register name | description |
 |---------|---------------|-------------|
