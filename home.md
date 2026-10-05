@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 This documentation is for fofb version 5 and above.
 
 # Paper documentation
