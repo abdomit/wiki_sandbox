@@ -249,7 +249,7 @@ As a safety measure the FOFB can stop if one position exceed a specified value. 
 
 By default the BPM limit feature is enabled, which means that the FOFB will stop immediately if this condition is fulfilled:
 
-FOFB stops if $`\left|X_i - X_{i,\text{offset}} \right| >= \text{BPM_POSLIMIT_X}`$ for any valid BPM $`i`$
+FOFB stops if $`\left|X_i - X_{i,\text{offset}} \right| >= \text{BPM\_POSLIMIT\_X}`$ for any valid BPM $`i`$
 
 Same thing in Y plane.
 
