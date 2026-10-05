@@ -54,8 +54,11 @@ For temperature the conversion is the following:
 \text{temp} [^\circ C] = \dfrac{503.975 \times x}{2^{16}}-273.15
 ```
 
-For voltage the conversion is the following:\
-$`\text{volt} [\text{V}] = 3 \times \dfrac{x}{2^{16}}`$ 
+For voltage the conversion is the following:
+
+```math
+\text{volt} [\text{V}] = 3 \times \dfrac{x}{2^{16}}
+```
 
 | address | register name | description |
 |---------|---------------|-------------|
