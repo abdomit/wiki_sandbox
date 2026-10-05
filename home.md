@@ -249,7 +249,7 @@ As a safety measure the FOFB can stop if one position exceed a specified value. 
 
 By default the BPM limit feature is enabled, which means that the FOFB will stop immediately if this condition is fulfilled:
 
-FOFB stops if ![](https://confluence.esrf.fr/plugins/servlet/confluence/placeholder/macro?definition=e21hdGhpbmxpbmU6Ym9keT0tLXVyaWVuY29kZWQtLVxsZWZ0JTdDWF9pIC0gWF8lN0JpLFx0ZXh0JTdCb2Zmc2V0JTdEJTdEIFxyaWdodCU3QyA-PSBcdGV4dCU3QkJQTV9QT1NMSU1JVF9YJTdEfQ&locale=en_GB&version=2) for any valid BPM ![](https://confluence.esrf.fr/plugins/servlet/confluence/placeholder/macro?definition=e21hdGhpbmxpbmU6Ym9keT1pfQ&locale=en_GB&version=2)
+FOFB stops if $`\left|X_i - X_{i,\text{offset}} \right| >= \text{BPM_POSLIMIT_X}`$ for any valid BPM $`i`$
 
 Same thing in Y plane.
 
