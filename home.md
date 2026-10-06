@@ -8,7 +8,7 @@ The original documentation for the FOFB is a .doc document, it is referred here 
 
 Since v3.0.0, the documentation is now on Confluence.
 
-[FOFB_doc_A08.doc](#)
+[FOFB_doc_A08.doc](https://confluence.esrf.fr/download/attachments/50757910/FOFB_doc_A08.doc?version=1&modificationDate=1641918678582&api=v2)
 
 # List of all registers
 
@@ -36,9 +36,9 @@ Since v3.0.0, the documentation is now on Confluence.
 | 0x1000 - 0x11FF | OFFSET_X | R/W | X offsets of positions (16 bits signed, resolution 16nm, full scale \~+-500um) |
 | 0x1200 - 0x13FF | OFFSET_Y | R/W | Y offsets of positions (16 bits signed, resolution 16 nm, full scale \~+-500um) |
 | 0x1400 - x1FFF |  |  | not used |
-| 0x2000 – 0x3BFF | RAM_COEF_X\_\* | R/W | [Address space for X matrix coefficients](#FOFBregisters-ORBIT_CORR) |
+| 0x2000 – 0x3BFF | RAM_COEF_X\_\* | R/W | [Address space for X matrix coefficients](#orbit-correction) |
 | 0x3C00 – 0x3FFF |  |  | not used |
-| 0x4000 – 0x5BFF | RAM_COEF_Y\_\* | R/W | [Address space for Y matrix coefficients](#FOFBregisters-ORBIT_CORR) |
+| 0x4000 – 0x5BFF | RAM_COEF_Y\_\* | R/W | [Address space for Y matrix coefficients](#orbit-correction) |
 | 0x5C00 – 0x5FFF |  |  | not used |
 | 0x6000 – 0x61FF | CC_POS_X | R/W | [Address space for X positions read from CC](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) |
 | 0x6200 – 0x63FF | CC_POS_Y | R/W | [Address space for Y positions read from CC](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) |
