@@ -26,7 +26,7 @@ Since v3.0.0, the documentation is now on Confluence.
 | 0x000D | FAULT_DEVICE_Y | R | [Y faulty device register](#report-on-fault) |
 | 0x000E - 0x0016 | SYSMON\_\* | R | [System Monitor registers](#system-monitor-registers-0x000e--0x0016) |
 | 0x000E – 0x007F |  |  | not used |
-| 0x0080 – 0x03FF | RAM_CORR | R/W | [Address space for FOFB parameters and sine excitation](#FOFBregisters-RAM_CORR_BRAM) |
+| 0x0080 – 0x03FF | RAM_CORR | R/W | [Address space for FOFB parameters and sine excitation](#ram_corrbram-0x0080--0x00ff) |
 | 0x0400 – 0x05FF | WF_H1 | R/W | X damping waveform for Septa kicks (16 bit signed, normalized: full scale -1/+1) |
 | 0x0600 – 0x07FF | WF_V1 | R/W | Y damping waveform for Septa kicks (16 bit signed, normalized: full scale  -1/+1) |
 | 0x0800 – 0x09FF | WF_H2 | R/W | 2nd set of X damping waveform for Septa kicks |
