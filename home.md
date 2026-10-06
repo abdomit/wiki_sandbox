@@ -21,10 +21,10 @@ Since v3.0.0, the documentation is now on Confluence.
 | 0x0006 – 0x0007 | Scratch pads | R | 16 bit scratchpad registers (debugging info from Simulink model) |
 | 0x0008 – 0x0009 | Trigger counters | R | 16 bit counters for, resp., "hardware" trigger and FA network one<br>(FA_trig_cnt _removed in v5.4.0_) |
 | 0x000A | RF_FREQ | R | 16 bit RF frequency register |
-| 0x000B | FAULT_STATUS | R | [Fault status register](#FOFBregisters-FAULT_REPORT) |
-| 0x000C | FAULT_DEVICE_X | R | [X faulty device register](#FOFBregisters-FAULT_REPORT) |
-| 0x000D | FAULT_DEVICE_Y | R | [Y faulty device register](#FOFBregisters-FAULT_REPORT) |
-| 0x000E - 0x0016 | SYSMON\_\* | R | [System Monitor registers](#FOFBregisters-SYSMON)\_\_ |
+| 0x000B | FAULT_STATUS | R | [Fault status register](#report-on-fault) |
+| 0x000C | FAULT_DEVICE_X | R | [X faulty device register](#report-on-fault) |
+| 0x000D | FAULT_DEVICE_Y | R | [Y faulty device register](#report-on-fault) |
+| 0x000E - 0x0016 | SYSMON\_\* | R | [System Monitor registers](#system-monitor-registers-0x000e--0x0016) |
 | 0x000E – 0x007F |  |  | not used |
 | 0x0080 – 0x03FF | RAM_CORR | R/W | [Address space for FOFB parameters and sine excitation](#FOFBregisters-RAM_CORR_BRAM) |
 | 0x0400 – 0x05FF | WF_H1 | R/W | X damping waveform for Septa kicks (16 bit signed, normalized: full scale -1/+1) |
