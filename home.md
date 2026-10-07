@@ -76,8 +76,8 @@ For voltage the conversion is the following:
 
 ## RAM_CORR BRAM (0x0080 → 0x00FF)
 
-| **Address** | BRAM addr (VHDL side) | **Description** |
-|-------------|-----------------------|-----------------|
+| **Address** | **BRAM addr (VHDL side)** | **Description** |
+|-------------|---------------------------|-----------------|
 | 0x0080 | 0 | A0x |
 | 0x0081 | 1 | A1x |
 | 0x0082 | 2 | A2x |
@@ -404,8 +404,8 @@ It is possible to remove one BPM from the fast orbit correction. This can be don
 
 When the value '1' is used in the corresponding address of a BPM, the position value used for that BPM (after subtraction of the offset) is 0. The "Fault on BPM position" feature is also disabled for that BPM, on that plane. Be careful that this feature used the same correction matrix as when the BPM was not disabled.
 
-| Address(es) | Name | R/W | comment |
-|-------------|------|-----|---------|
+| **Address(es)** | **Name** | **R/W** | **comment** |
+|-----------------|----------|---------|-------------|
 | 0x0C00 – 0x0DFF | BPM_DISABLE_X | R/W | an array of 1-bit registers used to disable X BPM position from the fast orbit correction ('1' means disabled),<br>BPMs' ID start at 1, so C04-01 is controlled with register 0x0C01,<br>default value is '0' for all BPMs |
 | 0x0E00 – 0x0FFF | BPM_DISABLE_Y | R/W | same as above, for Y plane |
 
