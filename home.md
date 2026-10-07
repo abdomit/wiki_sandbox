@@ -15,8 +15,8 @@ Since v3.0.0, the documentation is now on Confluence.
 | **ADDRESS (in 32-bits words)** | **REGISTER** | **R/W mode** | **DESCRIPTION** |
 |--------------------------------|--------------|--------------|-----------------|
 | 0x0000 | VERSION | R | 0x00VVSSRR with: VV=version, SS=subversion, RR=revision |
-| 0x0001 | CC_CTRL | R/W | [CC control register](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) |
-| 0x0002 | CORR_CTRL | R/W | [Corrector control register](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) |
+| 0x0001 | CC_CTRL | R/W | [CC control register](FOFB-cc-registers) |
+| 0x0002 | CORR_CTRL | R/W | [Corrector control register](FOFB-cc-registers) |
 | 0x0003 - 0x0005 |  |  | not used |
 | 0x0006 – 0x0007 | Scratch pads | R | 16 bit scratchpad registers (debugging info from Simulink model) |
 | 0x0008 – 0x0009 | Trigger counters | R | 16 bit counters for, resp., "hardware" trigger and FA network one<br>(FA_trig_cnt _removed in v5.4.0_) |
@@ -40,10 +40,10 @@ Since v3.0.0, the documentation is now on Confluence.
 | 0x3C00 – 0x3FFF |  |  | not used |
 | 0x4000 – 0x5BFF | RAM_COEF_Y\_\* | R/W | [Address space for Y matrix coefficients](#orbit-correction) |
 | 0x5C00 – 0x5FFF |  |  | not used |
-| 0x6000 – 0x61FF | CC_POS_X | R/W | [Address space for X positions read from CC](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) |
-| 0x6200 – 0x63FF | CC_POS_Y | R/W | [Address space for Y positions read from CC](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) |
-| 0x6400 – 0x64FF | CC_CONFIG | R/W | [CC configuration registers](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) (see CC documentation) |
-| 0x6500 – 0x65FF | CC_STATUS | R/W | [CC status registers](https://confluence.esrf.fr/display/DIAGWK/FOFB+CC+registers) (see CC documentation) |
+| 0x6000 – 0x61FF | CC_POS_X | R/W | [Address space for X positions read from CC](FOFB-cc-registers) |
+| 0x6200 – 0x63FF | CC_POS_Y | R/W | [Address space for Y positions read from CC](FOFB-cc-registers) |
+| 0x6400 – 0x64FF | CC_CONFIG | R/W | [CC configuration registers](FOFB-cc-registers) (see CC documentation) |
+| 0x6500 – 0x65FF | CC_STATUS | R/W | [CC status registers](FOFB-cc-registers) (see CC documentation) |
 | 0x6600 – 0x7FFF |  |  | not used |
 
 ## System Monitor Registers (0x000E → 0x0016)
@@ -88,22 +88,22 @@ For voltage the conversion is the following:
 | 0x0087 | 7 | A2z |
 | 0x0088 | 8 | NOTCH1_GAIN_Z |
 | 0x0089 | 9 | NOTCH1_DELAY_Z (7-bit unsigned, 100 µs per LSB) |
-| 0x008A | 10 | [BPM_ISUM_X](#FOFBregisters-ISUM) |
-| 0x008B | 11 | [BPM_ISUM_Z](#FOFBregisters-ISUM) |
-| 0x008C | 12 | [ISUM_CNT](#FOFBregisters-ISUM) |
-| 0x008D | 13 | [ISUM_MODE](#FOFBregisters-ISUM) |
+| 0x008A | 10 | [BPM_ISUM_X](#total-steerer-current-correction) |
+| 0x008B | 11 | [BPM_ISUM_Z](#total-steerer-current-correction) |
+| 0x008C | 12 | [ISUM_CNT](#total-steerer-current-correction) |
+| 0x008D | 13 | [ISUM_MODE](#total-steerer-current-correction) |
 | 0x008E | 14 | bpm_start_ind (default: 1). _added in v5.2.3_ |
 | 0x008F | 15 | bpm_stop_ind (default: 192). _added in v5.2.3_ |
 | 0x0090 - 0x0092 | 16 - 18 | Unused |
-| 0x0093 | 19 | [WAVEFORMS_ENA](#FOFBregisters-waveforms) |
-| 0x0094 – 0x009D | 20 - 29 | [Trigger Registers](#FOFBregisters-triggers) |
+| 0x0093 | 19 | [WAVEFORMS_ENA](#waveform-for-septa-damping) |
+| 0x0094 – 0x009D | 20 - 29 | [Trigger Registers](#triggers) |
 | 0x009E | 30 | RF_FREQ_CNT (_added in v5.4.8_)\_<br>_4-bit counter, increment each time RF_FREQ is updated_\_ |
 | 0x009F – 0x00AE | 31 - 46 | Unused |
-| 0x00AF | 47 | [BLANKING_DURATION](#FOFBregisters-blanking) |
+| 0x00AF | 47 | [BLANKING_DURATION](#blanking) |
 | 0x00B0 - 0x00B9 | 48 - 57 | Simple Sniffer (not documented) |
 | 0x00BA | 58 | Unused |
-| 0x00BB | 59 | [LIMITS_DISABLE](#FOFBregisters-LIMITS_DISABLE) |
-| 0x00BC | 60 | [LIMITS_ENABLE](#FOFBregisters-LIMITS_ENABLE) |
+| 0x00BB | 59 | [LIMITS_DISABLE](#limits_disable) |
+| 0x00BC | 60 | [LIMITS_ENABLE](#limits_enable) |
 | 0x00BD | 61 | BPM deviation limit value for X plane (16 bit integer expressed in µm)<br>If zero, set to default value: 2 mm. |
 | 0x00BE | 62 | BPM deviation limit value for Y plane (16 bit integer expressed in µm)<br>If zero, set to default value: 500 µm. |
 | 0x00BF | 63 | Steerer absolute limit value for X plane in mA (16 bit signed integer, max value is 205)<br>If set to 205, limit on steerer current disabled |
@@ -189,9 +189,9 @@ The Trigger Counter register can be used to check when a new trigger was issued.
 | 0x0097 | TRIG_WF1_CNT | R | 0 | Trigger Counter Register for S2 compensation:<br>increment each time a trigger is taken into account |
 | 0x0098 | TRIG_WF2_SELECT | R/W | 0x04 | Source Selection Register for S3 compensation |
 | 0x0099 | TRIG_WF2_CNT | R | 0 | Trigger Counter Register for S3 compensation |
-| 0x009A | TRIG_SIGGEN_SELECT | R/W | 0x01 | Source Selection Register for the [Signal Generator](#FOFBregisters-siggen) |
+| 0x009A | TRIG_SIGGEN_SELECT | R/W | 0x01 | Source Selection Register for the [Signal Generator](#signal-generator) |
 | 0x009B | TRIG_SIGGEN_CNT | R | 0 | Trigger Counter Register for the Signal Generator |
-| 0x009C | TRIG_BLANK_SELECT | R/W | 0x02 | Source Selection Register for FOFB [blanking](#FOFBregisters-blanking) |
+| 0x009C | TRIG_BLANK_SELECT | R/W | 0x02 | Source Selection Register for FOFB [blanking](#blanking) |
 | 0x009D | TRIG_BLANK_CNT | R | 0 | Trigger Counter Register for FOFB blanking |
 
 Source Selection Register description:
@@ -255,12 +255,12 @@ FOFB stops if $`\left|X_i - X_{i,\text{offset}} \right| >= \text{BPM\_POSLIMIT\_
 
 Same thing in Y plane.
 
-This feature can be disabled for all BPM using the [LIMITS_DISABLE](#FOFBregisters-LIMITS_DISABLE) register.
+This feature can be disabled for all BPM using the [LIMITS_DISABLE](#limits_disable) register.
 
 | Address(es) | Name | R/W | comment |
 |-------------|------|-----|---------|
-| 0x00BB | [LIMITS_DISABLE](#FOFBregisters-LIMITS_DISABLE) | R/W | disable fault on X BPM position for all BPMs |
-| 0x00BC | [LIMITS_ENABLE](#FOFBregisters-LIMITS_ENABLE) | R/W | The "Enable limit" part of the register was removed |
+| 0x00BB | [LIMITS_DISABLE](#limits_disable) | R/W | disable fault on X BPM position for all BPMs |
+| 0x00BC | [LIMITS_ENABLE](#limits_enable) | R/W | The "Enable limit" part of the register was removed |
 | 0x00BD | BPM_POSLIMIT_X | R/W | BPM deviation limit value for X plane (16-bit integer expressed in µm) |
 | 0x00BD | BPM_POSLIMIT_Y | R/W | BPM deviation limit value for Y plane (16-bit integer expressed in µm) |
 
